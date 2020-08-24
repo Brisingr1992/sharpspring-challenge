@@ -1,0 +1,24 @@
+div.modal.fade id="#{type}Modal#{note.id}" tabindex="-1" role="dialog" aria-labelledby="#{type}Modallabel" aria-hidden="true"
+  div.modal-dialog role="document"
+    div.modal-content
+      div.modal-header
+        - if type.eql?('delete')
+          h5.modal-title id="deleteModalLabel" Delete Confirmation
+        - else
+          h5.modal-title id="showModalLabel" Note Details
+        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          i.fa.fa-times aria-hidden="true"
+      div.modal-body
+        - if type.eql?('delete')
+          p Are you sure?
+        - else
+          div#notes.container-fluid
+            div.card
+              div.card-body
+                h5.card-title = note.title
+                h6.card-subtitle.mb-2.text-muted #{note.user.first_name} at #{note.created_at.to_date}
+                p.card-text = note.body
+      div.modal-footer
+        - if type.eql?('delete')
+          = link_to 'Delete', note, method: :delete, class: 'btn btn-outline-danger'
+        button.btn.btn-secondary type="button" data-dismiss="modal" Cancel

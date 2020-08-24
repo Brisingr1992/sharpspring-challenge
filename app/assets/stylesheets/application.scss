@@ -16,3 +16,28 @@
 
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+
+body {
+  height: 100%;
+  // overflow: hidden;
+
+  .alert-alert {
+    @extend .alert-danger;
+  }
+
+  .alert-notice {
+    @extend .alert-warning;
+  }
+
+  .alert-success {
+    @extend .alert-warning;
+  }
+
+  .alert-error {
+    @extend .alert-warning;
+  }
+
+  .nav-hover:hover, .nav-hover:focus {
+    background-color: transparent;
+  }
+}

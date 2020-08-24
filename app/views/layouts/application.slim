@@ -9,4 +9,29 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    - if current_user
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+        ul.navbar-nav.ml-auto
+            li.nav-item
+              = link_to "Home", notes_path, class: 'nav-link nav-hover'
+            li.nav-item
+              = link_to "Create", new_note_path, class: 'nav-link nav-hover'
+        div.navbar-collapse.collapse.w-100.order-1.order-md-0.dual-collapse2
+          div.mx-auto.order-0
+        /   a.navbar-brand.mx-auto.nav-hover href="#" Navbar
+        /   button.navbar-toggler type="button" data-toggle="collapse" data-target=".dual-collapse2"
+        /     span.navbar-toggler-icon"
+        div class="navbar-collapse collapse w-100 order-3 dual-collapse2"
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              = link_to "Edit User", edit_user_path(current_user), class: 'nav-link nav-hover'
+            li.nav-item
+              = link_to "Logout", logout_path, class: 'nav-link nav-hover'
     = yield
+    div.container
+      - if flash.any?
+        - flash.each do |key, value|
+          div class='alert alert-#{key} alert-dismissible' role="alert"
+            button.close type="button" data-dismiss="alert" aria-label="Close"
+              i.fa.fa-times aria-hidden="true"
+            p = value
