@@ -21,6 +21,7 @@ gem 'kaminari'
 group :development, :test do
   gem 'bcrypt-ruby'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -31,8 +32,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'simplecov', require: false

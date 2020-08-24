@@ -10,11 +10,11 @@ div#notes.container-fluid
                 button.btn.btn-link data-toggle="collapse" data-target="#collapse#{note.id}" aria-expanded="true" aria-controls="collapse#{note.id}"
                   Collapsible #{note.title.capitalize}
               div.right
-                button.btn.btn-default data-toggle="modal" data-target="#showModal#{note.id}"
+                button.btn.btn-default id="show" data-toggle="modal" data-target="#showModal#{note.id}"
                   i.fa.fa-eye aria-hidden="true"
                 = link_to edit_note_path(note), class: 'btn btn-default'
                   i.fa.fa-pencil aria-hidden="true"
-                button.btn.btn-default data-toggle="modal" data-target="#deleteModal#{note.id}"
+                button.btn.btn-default.delete data-toggle="modal" data-target="#deleteModal#{note.id}"
                   i.fa.fa-trash aria-hidden="true"
           - if index.eql? 0
             div.collapse.show id="collapse#{note.id}" aria-labelledby="heading#{note.id}" data-parent="#accordion"

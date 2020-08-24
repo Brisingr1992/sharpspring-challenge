@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to edit_user_url, notice: "User was successfully updated!"
     else
-      render edit_user_url, alert: "Email or password is invalid"
+      flash[:alert] = "Email or password is invalid!"
+      render :edit
     end
   end
   
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Thank you for signing up!"
     else
-      flash[:alert] = "Problem creating user!"
+      flash[:alert] = "Email or password is invalid!"
       render "new"
     end
   end

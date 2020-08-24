@@ -245,7 +245,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootsnap (>= 1.4.2)
   byebug
-  capybara (>= 2.15)
+  capybara
   font-awesome-rails
   jbuilder (~> 2.7)
   kaminari
