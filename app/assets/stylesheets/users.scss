@@ -1,0 +1,33 @@
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  .container {
+    // border: 1px solid rgba(0, 0, 0, 0.5);
+    // border-radius: 5px;
+    padding: 20px;
+  
+    h2 {
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      opacity: 0.6;
+    }
+  
+    form {
+      padding: 20px;
+    }
+  
+    .link-btn:hover, .link-btn:focus {
+      background-color: white;
+      outline: none;
+    }
+  
+    .root-btn {
+      background-color: #666;
+      color: white;
+    }
+  }

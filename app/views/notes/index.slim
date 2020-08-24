@@ -1,0 +1,33 @@
+div#notes.container-fluid
+  h1.mb-4 Notes
+  div#accordion
+    - if @notes.present?
+      - @notes.each_with_index do |note, index|
+        div.card.mb-2
+          div.card-header id="heading#{note.id}" data-toggle="tooltip" data-placement="top" title="#{note.user.email} at #{note.created_at.to_date}"
+            h5.mb-0
+              div.left
+                button.btn.btn-link data-toggle="collapse" data-target="#collapse#{note.id}" aria-expanded="true" aria-controls="collapse#{note.id}"
+                  Collapsible #{note.title.capitalize}
+              div.right
+                button.btn.btn-default id="show" data-toggle="modal" data-target="#showModal#{note.id}"
+                  i.fa.fa-eye aria-hidden="true"
+                = link_to edit_note_path(note), class: 'btn btn-default'
+                  i.fa.fa-pencil aria-hidden="true"
+                button.btn.btn-default.delete data-toggle="modal" data-target="#deleteModal#{note.id}"
+                  i.fa.fa-trash aria-hidden="true"
+          - if index.eql? 0
+            div.collapse.show id="collapse#{note.id}" aria-labelledby="heading#{note.id}" data-parent="#accordion"
+              div.card-body
+                | #{note.body}
+          - else
+            div.collapse id="collapse#{note.id}" aria-labelledby="heading#{note.id}" data-parent="#accordion"
+              div.card-body
+                | #{note.body}
+
+        = render partial: 'modal', locals: { note: note, type: 'show' }
+        = render partial: 'modal', locals: { note: note, type: 'delete' }
+      <br>
+      = paginate @notes
+  div.text-center
+    = link_to 'New Note', new_note_path, class: 'btn btn-primary create'

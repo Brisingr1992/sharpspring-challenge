@@ -1,0 +1,39 @@
+div.vertical-center
+  div.container
+    h2.mb-4 Sign Up
+
+    = form_for @user do |f|
+      - if @user.errors.any?
+          div.alert.alert-warning.alert-dismissible.fade.show role="alert"
+          - @user.errors.full_messages.each do |message|
+            li = message
+          button.close type="button" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times
+
+      div.form-group.row
+        = f.label :first_name, class: 'col-sm-2 col-form-label'
+        div.col-sm-10
+          = f.text_field :first_name, class: 'form-control', placeholder: 'Enter First Name', maxLength: 20, :required => true
+      div.form-group.row
+        = f.label :last_name, class: 'col-sm-2 col-form-label'
+        div.col-sm-10
+          = f.text_field :last_name, class: 'form-control', placeholder: 'Enter Last Name', maxLength: 20, :required => true
+      div.form-group.row
+        = f.label :email, class: 'col-sm-2 col-form-label'
+        div.col-sm-10
+          = f.email_field :email, class: 'form-control', placeholder: 'Enter email', :required => true
+      div.form-group.row
+        = f.label :password, class: 'col-sm-2 col-form-label'
+        div.col-sm-10
+          = f.password_field :password, class: 'form-control', placeholder: 'Password', :required => true
+      div.form-group.row
+        = f.label :password_confirmation, class: 'col-sm-2 col-form-label'
+        div.col-sm-10
+          = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation', :required => true
+      / div.form-check
+      /   = f.check_box :remember_me, class: 'form-check-input'
+      /   = f.label :remember_me, class: 'form-check-label'
+      div.form-group.row
+        div.col.text-center
+          = f.submit "Sign Up", class: 'btn btn-primary'
+          = link_to 'Log In', new_session_path, :class => 'btn btn-secondary ml-1 root-btn'

@@ -1,0 +1,9 @@
+div#notes.container-fluid
+  div.card
+    div.card-body
+      h5.card-title = @note.title
+      h6.card-subtitle.mb-2.text-muted #{@note.user.email} at #{@note.created_at.to_date}
+      p.card-text = @note.body
+      div.text-center
+        = link_to 'Edit', edit_note_path(@note), class: 'card-link'
+        = link_to 'Back', notes_path, class: 'card-link'
