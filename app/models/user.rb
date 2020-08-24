@@ -8,4 +8,10 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false }, length: { maximum: 254 }
 
   validates_presence_of :first_name, :password
+
+  before_destroy :destroy_notes
+
+  def destroy_notes
+    self.notes.destroy_all
+  end
 end
