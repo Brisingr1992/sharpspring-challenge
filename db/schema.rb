@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_08_24_012012) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "notes", force: :cascade do |t|
     t.string "title", limit: 30
     t.string "body", limit: 1000
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "published_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

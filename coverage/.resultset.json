@@ -512,6 +512,33 @@
           null
         ]
       },
+      "/Users/saushthav/projects/sharpspring-challenge/spec/mailers/note_mailer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/saushthav/projects/sharpspring-challenge/app/mailers/note_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          4,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/saushthav/projects/sharpspring-challenge/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/saushthav/projects/sharpspring-challenge/spec/models/note_spec.rb": {
         "lines": [
           null,
@@ -671,7 +698,7 @@
           null,
           null,
           1,
-          105,
+          109,
           null,
           1,
           null,
@@ -731,6 +758,7 @@
           null,
           null,
           1,
+          4,
           4,
           4,
           4,
@@ -808,6 +836,6 @@
         ]
       }
     },
-    "timestamp": 1598254822
+    "timestamp": 1598257077
   }
 }

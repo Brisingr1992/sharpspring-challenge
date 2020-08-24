@@ -24,6 +24,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params.merge(user_id: @current_user.id))
     if @note.save
+      NoteMailer.send_note(@note, current_user).deliver_later
       redirect_to notes_url, notice: 'Note successfully created!'
     else
       render :new

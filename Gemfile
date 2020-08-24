@@ -5,7 +5,7 @@ ruby '2.7.0'
 
 # Stack
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
@@ -29,6 +29,7 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener'
 end
 
 group :test do
